@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dimi Picker</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
         html, body{
             width: 100vw;
             height: 100vh;
             margin: 0;
             padding: 0;
             text-align: center;
-            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
         }
         input[type=text], button, a, p{
-            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 20px;
         }
         .inputNumber{
@@ -24,7 +24,7 @@
             border-bottom: 3px solid black;
             text-align: center;
         }
-        .inputButton{
+        .inputButton1{
             border: none;
             /* border-bottom: 3px solid black; */
             background: radial-gradient( #EF008555, #ffffff00, #ffffff00 );
@@ -34,6 +34,28 @@
             /* background: none; */
             cursor: pointer;
             /* background-color: pink; */
+            margin-right: -25px;
+        }
+        .inputButton2{
+            border: none;
+            /* border-bottom: 3px solid black; */
+            background: radial-gradient( #009bef55, #ffffff00, #ffffff00 );
+            text-align: center;
+            width: 200px;
+            height: 100px;
+            /* background: none; */
+            cursor: pointer;
+            /* background-color: pink; */
+            margin-left: -25px;
+        }
+        table, td, th {
+            border : 1px solid black;
+            border-collapse : collapse;
+        }
+        .name{
+            text-align: center;
+            width: 70px;
+            border: none;
         }
     </style>
 </head>
@@ -55,13 +77,78 @@
     <input type="text" oninput="editSize(this)" class="inputNumber" id="afterNumber" style="text-align: center;">
     <br>
     <h1 id="nowNumber" style="font-size: 60px;">-</h1>
-    <button class="inputButton" onclick="clickButton()">뽑기</button>
+    <button class="inputButton1" onclick="clickButton()">뽑기</button>
+    <button class="inputButton2" onclick="viewClick()" id="viewButton">자리 보기</button>
+    <br><br>
+    <table id="table" style="display: none;">
+        <tr>
+            <td colspan='5'><input type="text" class="name" value="교탁(칠판)" style="width: 200px;"></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+            <td><input type="text" class="name"></td>
+        </tr>
+    </table>
     <div style="position: fixed; bottom: -10px;">
         <img src="https://kimain050401.github.io/dimi-picker/dimigo-background.svg" width="100%">
     </div>
     <script>
         editSize2(document.getElementById("min"));
         editSize2(document.getElementById("max"));
+        function viewClick(){
+            if(document.getElementById("table").style.display == "none"){
+                document.getElementById("table").style.display = "inline-block";
+                document.getElementById("viewButton").innerText = "자리 숨기기";
+            }else{
+                document.getElementById("table").style.display = "none";
+                document.getElementById("viewButton").innerText = "자리 보기";
+            }
+        }
         function editSize2(obj){
             obj.size = obj.value.length;
         }
