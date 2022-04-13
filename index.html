@@ -46,30 +46,34 @@
         }
         .inputButton1{
             border: none;
-            background: radial-gradient( #EF008555, #ffffff00, #ffffff00 );
+            border: 6px solid #EF0085;
+            color: #EF0085;
+            padding: 5px 20px 5px 20px;
+            font-weight: bold;
+            width: fit-content;
             text-align: center;
-            width: 200px;
-            height: 100px;
             cursor: pointer;
-            margin-right: -25px;
+            margin-right: 10px;
         }
         .inputButton2{
             border: none;
-            background: radial-gradient( #009bef55, #ffffff00, #ffffff00 );
+            border: 6px solid #EF0085;
+            color: #EF0085;
+            padding: 5px 20px 5px 20px;
+            font-weight: bold;
+            width: fit-content;
             text-align: center;
-            width: 200px;
-            height: 100px;
             cursor: pointer;
-            margin-left: -25px;
         }
         .inputButton3{
             border: none;
-            background: radial-gradient( #00ef1c55, #ffffff00, #ffffff00 );
+            border: 6px solid #EF0085;
+            color: #EF0085;
+            padding: 5px 20px 5px 20px;
+            font-weight: bold;
+            width: fit-content;
             text-align: center;
-            width: 200px;
-            height: 100px;
             cursor: pointer;
-            margin-left: -25px;
         }
         table, td, th {
             border : 3px solid black;
@@ -86,7 +90,7 @@
     <div style="position: relative; z-index: 2;">
         <div class="printNo">
             <br><br>
-            <h1>Dimi Picker</h1>
+            <h1 style="display: inline-block; font-size: 40px; border: 6px solid #EF0085; color: #EF0085; padding: 5px 20px 5px 20px; width: fit-content;">Dimi Picker</h1>
             <br>
             <div style="display: inline-block; text-align: center; padding-right: 20px;">
                 <a>시작 번호</a><br>
@@ -102,8 +106,8 @@
             <input type="text" oninput="editSize(this)" class="inputNumber" id="afterNumber" style="text-align: center;">
             <br>
             <h1 id="nowNumber" style="font-size: 60px;">-</h1>
-            <button class="inputButton1" onclick="clickButton()" style="color: black;">뽑기</button>
-            <button class="inputButton2" onclick="viewClick()" id="viewButton" style="color: black;">자리 보기</button>
+            <button class="inputButton1" onclick="clickButton()">뽑기</button>
+            <button class="inputButton2" onclick="viewClick()" id="viewButton">자리 보기</button>
             <br><br>
         </div>
         <div id="table" style="display: none;">
@@ -161,7 +165,8 @@
                     <td><input type="text" class="name"></td>
                 </tr>
             </table>
-            <button class="inputButton3 printNo" onclick="window.print()" id="viewButtons" style="color: black;">프린트하기</button>
+            <br>
+            <button class="inputButton3 printNo" onclick="window.print()" id="viewButtons">프린트하기</button>
         </div>
     </div>
     <div class="printNo" style="position: fixed; bottom: -10px; z-index: 1;">
@@ -215,6 +220,9 @@
             }
         }
         function clickButton(){
+            if(document.getElementById("afterNumber").value.substr(-1) != " "){
+                document.getElementById("afterNumber").value += " ";
+            }
             randomNumber(Number(document.getElementById("min").value), Number(document.getElementById("max").value), 0);
             editSize(document.getElementById("afterNumber"));
         }
