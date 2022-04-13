@@ -34,38 +34,45 @@
         }
         .inputButton{
             border: none;
-            border-bottom: 3px solid black;
+            /* border-bottom: 3px solid black; */
+            background: radial-gradient( #EF008555, #ffffff00, #ffffff00 );
             text-align: center;
-            background: none;
+            width: 200px;
+            height: 100px;
+            /* background: none; */
             cursor: pointer;
             /* background-color: pink; */
         }
     </style>
 </head>
 <body>
+    <br><br>
+    <h1>Dimi Picker</h1>
     <br>
-    <h1>Dimigo Picker</h1>
-    <br>
-    <div style="display: inline-block; text-align: center;">
+    <div style="display: inline-block; text-align: center; padding-right: 20px;">
         <a>시작 번호</a><br>
-        <input type="text" class="inputNumber" id="min" style="width: 40px;" value="0">
+        <input type="text" oninput="editSize2(this)" class="inputNumber" id="min" value="0">
     </div>
     <div style="display: inline-block; text-align: center;">
         <a>끝 번호</a><br>
-        <input type="text" class="inputNumber" id="max" style="width: 40px" value="0">
+        <input type="text" oninput="editSize2(this)" class="inputNumber" id="max" value="0">
     </div>
     <br><br>
-    <a style="background-color: white; width: fit-content; display: inline-block; padding: 0px 10px 0px 10px;">당첨된 번호 (띄어쓰기로 구분)</a>
+    <a>당첨된 번호 (띄어쓰기로 구분)</a>
     <br>
     <input type="text" oninput="editSize(this)" class="inputNumber" id="afterNumber" style="text-align: center;">
-    <br><br><br>
-    <h1 id="nowNumber" style="font-size: 60px;">-</h1>
     <br>
+    <h1 id="nowNumber" style="font-size: 60px;">-</h1>
     <button class="inputButton" onclick="clickButton()">뽑기</button>
     <div style="position: fixed; bottom: -10px;">
         <img src="https://kimain050401.github.io/dimigo-picker/dimigo-background.svg" width="100%">
     </div>
     <script>
+        editSize2(document.getElementById("min"));
+        editSize2(document.getElementById("max"));
+        function editSize2(obj){
+            obj.size = obj.value.length;
+        }
         function editSize(obj){
             obj.size = obj.value.length * 0.6;
         }
