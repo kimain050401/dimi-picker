@@ -124,7 +124,7 @@
                 <input type="checkbox" id="checkbox2" onclick="clickCheckBox()"><label for="checkbox2"></label><a style="vertical-align: top; margin-left: 6px;">이름으로 뽑기 (띄어쓰기로 구분)</a>
             </div>
             <div id="textarea" style="display: none;">
-                <textarea type="text" class="inputNumber" style="text-align: center; width: 90vw; esize: none;"></textarea>
+                <textarea type="text" class="inputNumber" id="textareaText" style="text-align: center; width: 90vw; esize: none;"></textarea>
                 <br>
             </div>
             <h1 id="nowNumber" style="font-size: 60px; line-height: 20px; margin-bottom: 50px;">ㅤ</h1>
@@ -288,34 +288,73 @@
             obj.size = obj.value.length;
         }
         function editSize(obj){
-            if(isBrowserCheck() == "Safari"){
-                obj.size = obj.value.length * 0.5;
+            if(document.getElementById("checkbox2").checked == true){
+                // 김아인 박찬준 홍길동 김현준 최지민
+                if(isBrowserCheck() == "Safari"){
+                    obj.size = obj.value.length * 0.8;
+                } else{
+                    obj.size = obj.value.length * 1.5;
+                }
             } else{
-                obj.size = obj.value.length * 0.9;
+                if(isBrowserCheck() == "Safari"){
+                    obj.size = obj.value.length * 0.5;
+                } else{
+                    obj.size = obj.value.length * 0.9;
+                }
             }
         }
         function clickButton(){
             if(document.getElementById("afterNumber").value.substr(-1) != " "){
                 document.getElementById("afterNumber").value += " ";
             }
-            randomNumber(Number(document.getElementById("min").value), Number(document.getElementById("max").value), 0);
+            if(document.getElementById("checkbox2").checked == true){
+                randomNumber(Number(document.getElementById("min").value) - 1, Number(document.getElementById("max").value) - 1, 0);
+            } else{
+                randomNumber(Number(document.getElementById("min").value), Number(document.getElementById("max").value), 0);
+            }
             editSize(document.getElementById("afterNumber"));
         }
         function randomNumber(min, max, chance){
-            var splitNumber = document.getElementById("afterNumber").value.split(" ");
-            var rand = String(Math.floor(Math.random() * (max - min + 1)) + min);
-            if(splitNumber.indexOf(rand) == -1){
-                document.getElementById("nowNumber").innerText = rand;
-                document.getElementById("afterNumber").value += rand + " ";
-                if(document.getElementById("checkbox").checked == true){
-                    document.getElementById(String(checkNumber)).value = rand;
-                    checkNumber += 1;
+            console.log(min, max, chance)
+            if(document.getElementById("checkbox2").checked == true){
+                var splitText = document.getElementById("textareaText").value.split(" ");
+                var splitNumber = document.getElementById("afterNumber").value.split(" ");
+                console.log(splitNumber)
+                console.log(splitText)
+                var rand = Math.floor(Math.random() * (max - min + 1)) + min;
+                console.log(rand)
+                if(splitNumber.indexOf(splitText[rand]) == -1){
+                    console.log("HI")
+                    document.getElementById("nowNumber").innerText = splitText[rand];
+                    document.getElementById("afterNumber").value += splitText[rand] + " ";
+                    if(document.getElementById("checkbox").checked == true){
+                        document.getElementById(String(checkNumber)).value = splitText[rand];
+                        checkNumber += 1;
+                    }
+                } else{
+                    console.log("FUCK")
+                    if(chance > max){
+                        document.getElementById("nowNumber").innerText = "다 뽑음";
+                    } else{
+                        randomNumber(Number(document.getElementById("min").value) - 1, Number(document.getElementById("max").value) - 1, chance + 1);
+                    }
                 }
             } else{
-                if(chance > max){
-                    document.getElementById("nowNumber").innerText = "다 뽑음";
+                var splitNumber = document.getElementById("afterNumber").value.split(" ");
+                var rand = String(Math.floor(Math.random() * (max - min + 1)) + min);
+                if(splitNumber.indexOf(rand) == -1){
+                    document.getElementById("nowNumber").innerText = rand;
+                    document.getElementById("afterNumber").value += rand + " ";
+                    if(document.getElementById("checkbox").checked == true){
+                        document.getElementById(String(checkNumber)).value = rand;
+                        checkNumber += 1;
+                    }
                 } else{
-                    randomNumber(Number(document.getElementById("min").value), Number(document.getElementById("max").value), chance + 1);
+                    if(chance > max){
+                        document.getElementById("nowNumber").innerText = "다 뽑음";
+                    } else{
+                        randomNumber(Number(document.getElementById("min").value), Number(document.getElementById("max").value), chance + 1);
+                    }
                 }
             }
         }
