@@ -34,15 +34,18 @@
     <a>시작 번호</a>
     <input type="text" name="min" style="width: 40px; margin-right: 20px;">
     <a>끝 번호</a>
-    <input type="text" name="min" style="width: 40px">
+    <input type="text" name="max" style="width: 40px">
     <br><br>
     <p>당첨된 번호</p>
     <input type="text" id="afterNumber" style="width: 90vw;">
     <br><br><br>
     <h1 id="nowNumber">대기 중</h1>
     <br>
-    <button onclick="randomNumber(1, 31, 0)">뽑기</button>
+    <button onclick="clickButton()">뽑기</button>
     <script>
+        function clickButton(){
+            randomNumber(Number(document.getElementById("min").value), Number(document.getElementById("max").value), 0);
+        }
         function randomNumber(min, max, chance){
             var splitNumber = document.getElementById("afterNumber").value.split(" ");
             var rand = String(Math.floor(Math.random() * (max - min + 1)) + min);
