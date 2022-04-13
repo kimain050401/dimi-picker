@@ -187,6 +187,9 @@
                 document.getElementById(String(i)).placeholder = "";
             }
             window.print()
+            for(var i = 1; i <= 35; i++){
+                document.getElementById(String(i)).placeholder = String(i);
+            }
         }
         editSize2(document.getElementById("min"));
         editSize2(document.getElementById("max"));
