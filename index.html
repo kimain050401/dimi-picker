@@ -313,7 +313,7 @@
             }
             if(document.getElementById("checkbox2").checked == true){
                 var splitText = document.getElementById("textareaText").value.split(" ");
-                randomNumber(0, splitText.length - 1, 0);
+                randomNumber(0, splitText.length - 1, -1);
             } else{
                 randomNumber(Number(document.getElementById("min").value), Number(document.getElementById("max").value), 0);
             }
