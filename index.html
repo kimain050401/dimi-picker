@@ -116,63 +116,69 @@
                     <td colspan='5'><input type="text" class="name" value="교탁(칠판)" style="width: 200px;"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="name" placeholder="1"></td>
-                    <td><input type="text" class="name" placeholder="2"></td>
-                    <td><input type="text" class="name" placeholder="3"></td>
-                    <td><input type="text" class="name" placeholder="4"></td>
-                    <td><input type="text" class="name" placeholder="5"></td>
+                    <td><input type="text" class="name" id="1" placeholder="1"></td>
+                    <td><input type="text" class="name" id="2" placeholder="2"></td>
+                    <td><input type="text" class="name" id="3" placeholder="3"></td>
+                    <td><input type="text" class="name" id="4" placeholder="4"></td>
+                    <td><input type="text" class="name" id="5" placeholder="5"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="name" placeholder="6"></td>
-                    <td><input type="text" class="name" placeholder="7"></td>
-                    <td><input type="text" class="name" placeholder="8"></td>
-                    <td><input type="text" class="name" placeholder="9"></td>
-                    <td><input type="text" class="name" placeholder="10"></td>
+                    <td><input type="text" class="name" id="6" placeholder="6"></td>
+                    <td><input type="text" class="name" id="7" placeholder="7"></td>
+                    <td><input type="text" class="name" id="8" placeholder="8"></td>
+                    <td><input type="text" class="name" id="9" placeholder="9"></td>
+                    <td><input type="text" class="name" id="10" placeholder="10"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="name" placeholder="11"></td>
-                    <td><input type="text" class="name" placeholder="12"></td>
-                    <td><input type="text" class="name" placeholder="13"></td>
-                    <td><input type="text" class="name" placeholder="14"></td>
-                    <td><input type="text" class="name" placeholder="15"></td>
+                    <td><input type="text" class="name" id="11" placeholder="11"></td>
+                    <td><input type="text" class="name" id="12" placeholder="12"></td>
+                    <td><input type="text" class="name" id="13" placeholder="13"></td>
+                    <td><input type="text" class="name" id="14" placeholder="14"></td>
+                    <td><input type="text" class="name" id="15" placeholder="15"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="name" placeholder="16"></td>
-                    <td><input type="text" class="name" placeholder="17"></td>
-                    <td><input type="text" class="name" placeholder="18"></td>
-                    <td><input type="text" class="name" placeholder="19"></td>
-                    <td><input type="text" class="name" placeholder="20"></td>
+                    <td><input type="text" class="name" id="16" placeholder="16"></td>
+                    <td><input type="text" class="name" id="17" placeholder="17"></td>
+                    <td><input type="text" class="name" id="18" placeholder="18"></td>
+                    <td><input type="text" class="name" id="19" placeholder="19"></td>
+                    <td><input type="text" class="name" id="20" placeholder="20"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="name" placeholder="21"></td>
-                    <td><input type="text" class="name" placeholder="22"></td>
-                    <td><input type="text" class="name" placeholder="23"></td>
-                    <td><input type="text" class="name" placeholder="24"></td>
-                    <td><input type="text" class="name" placeholder="25"></td>
+                    <td><input type="text" class="name" id="21" placeholder="21"></td>
+                    <td><input type="text" class="name" id="22" placeholder="22"></td>
+                    <td><input type="text" class="name" id="23" placeholder="23"></td>
+                    <td><input type="text" class="name" id="24" placeholder="24"></td>
+                    <td><input type="text" class="name" id="25" placeholder="25"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="name" placeholder="26"></td>
-                    <td><input type="text" class="name" placeholder="27"></td>
-                    <td><input type="text" class="name" placeholder="28"></td>
-                    <td><input type="text" class="name" placeholder="29"></td>
-                    <td><input type="text" class="name" placeholder="30"></td>
+                    <td><input type="text" class="name" id="26" placeholder="26"></td>
+                    <td><input type="text" class="name" id="27" placeholder="27"></td>
+                    <td><input type="text" class="name" id="28" placeholder="28"></td>
+                    <td><input type="text" class="name" id="29" placeholder="29"></td>
+                    <td><input type="text" class="name" id="30" placeholder="30"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="name" placeholder="31"></td>
-                    <td><input type="text" class="name"></td>
-                    <td><input type="text" class="name"></td>
-                    <td><input type="text" class="name"></td>
-                    <td><input type="text" class="name"></td>
+                    <td><input type="text" class="name" id="31" placeholder="31"></td>
+                    <td><input type="text" class="name" id="32" placeholder="32"></td>
+                    <td><input type="text" class="name" id="33" placeholder="33"></td>
+                    <td><input type="text" class="name" id="34" placeholder="34"></td>
+                    <td><input type="text" class="name" id="35" placeholder="35"></td>
                 </tr>
             </table>
             <br>
-            <button class="inputButton3 printNo" onclick="window.print()" id="viewButtons">프린트하기</button>
+            <button class="inputButton3 printNo" onclick="clickPrint()" id="viewButtons">프린트하기</button>
         </div>
     </div>
     <div class="printNo" style="position: fixed; bottom: -10px; z-index: 1;">
         <img src="https://kimain050401.github.io/dimi-picker/dimigo-background.svg" width="100%">
     </div>
     <script>
+        function clickPrint(){
+            for(var i = 1; i <= 35; i++){
+                document.getElementById(String(i)).placeholder = "";
+            }
+            window.print()
+        }
         editSize2(document.getElementById("min"));
         editSize2(document.getElementById("max"));
         function viewClick(){
