@@ -32,9 +32,9 @@
     <h1>Dimigo Picker</h1>
     <br>
     <a>시작 번호</a>
-    <input type="text" name="min" style="width: 40px; margin-right: 20px;">
+    <input type="text" id="min" style="width: 40px; margin-right: 20px;">
     <a>끝 번호</a>
-    <input type="text" name="max" style="width: 40px">
+    <input type="text" id="max" style="width: 40px">
     <br><br>
     <p>당첨된 번호</p>
     <input type="text" id="afterNumber" style="width: 90vw;">
@@ -56,7 +56,7 @@
                 if(chance > max){
                     document.getElementById("nowNumber").innerText = "다 뽑음";
                 } else{
-                    randomNumber(1, 31, chance + 1);
+                    randomNumber(Number(document.getElementById("min").value), Number(document.getElementById("max").value), chance + 1);
                 }
             }
         }
