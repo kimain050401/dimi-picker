@@ -171,16 +171,12 @@
         editSize2(document.getElementById("min"));
         editSize2(document.getElementById("max"));
         function viewClick(){
-            if(window.innerWidth < 400){
-                alert("모바일에서는 자리가 정상적으로 표시되지 않을 수 있습니다.")
-            } else{
-                if(document.getElementById("table").style.display == "none"){
-                    document.getElementById("table").style.display = "inline-block";
-                    document.getElementById("viewButton").innerText = "자리 숨기기";
-                }else{
-                    document.getElementById("table").style.display = "none";
-                    document.getElementById("viewButton").innerText = "자리 보기";
-                }
+            if(document.getElementById("table").style.display == "none"){
+                document.getElementById("table").style.display = "inline-block";
+                document.getElementById("viewButton").innerText = "자리 숨기기";
+            }else{
+                document.getElementById("table").style.display = "none";
+                document.getElementById("viewButton").innerText = "자리 보기";
             }
         }
         function isBrowserCheck(){ 
