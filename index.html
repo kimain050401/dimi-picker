@@ -145,7 +145,7 @@
                 </tr>
             </table>
             <br>
-            <button class="inputButton printNo" style="margin-right: 10px;" onclick="clickAllDel()" id="delButton">초기화</button>
+            <button class="inputButton printNo" style="margin-right: 10px;" onclick="clickAllDel()" id="delButton">자리 초기화</button>
             <button class="inputButton printNo" onclick="clickPrint()" id="viewButtons">프린트</button>
         </div>
     </div>
@@ -159,14 +159,14 @@
                 document.getElementById("delButton").innerText = "3초 안에 한번 더 누르세요";
                 delClickNumber = 1;
                 setTimeout(function() {
-                    if(document.getElementById("delButton").innerText != "초기화"){
+                    if(document.getElementById("delButton").innerText != "자리 초기화"){
                         document.getElementById("delButton").innerText = "2초 안에 한번 더 누르세요";
                         setTimeout(function() {
-                            if(document.getElementById("delButton").innerText != "초기화"){
+                            if(document.getElementById("delButton").innerText != "자리 초기화"){
                                 document.getElementById("delButton").innerText = "1초 안에 한번 더 누르세요";
                                 setTimeout(function() {
-                                    if(document.getElementById("delButton").innerText != "초기화"){
-                                        document.getElementById("delButton").innerText = "초기화";
+                                    if(document.getElementById("delButton").innerText != "자리 초기화"){
+                                        document.getElementById("delButton").innerText = "자리 초기화";
                                         delClickNumber = 0;
                                     }
                                 }, 1000);
@@ -178,7 +178,7 @@
                 for(var i = 1; i <= 35; i++){
                     document.getElementById(String(i)).value = "";
                 }
-                document.getElementById("delButton").innerText = "초기화";
+                document.getElementById("delButton").innerText = "자리 초기화";
                 delClickNumber = 0;
             }
         }
