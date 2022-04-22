@@ -106,99 +106,102 @@
     </style>
 </head>
 <body>
+    <br>
+    <h1 style="display: inline-block; font-size: 40px; border: 6px solid #EF0085; color: #EF0085; padding: 5px 20px 5px 20px; width: fit-content;">Dimi Picker</h1>
+    <br><br>
     <div style="position: relative; z-index: 2;">
-        <div class="printNo">
-            <br>
-            <h1 style="display: inline-block; font-size: 40px; border: 6px solid #EF0085; color: #EF0085; padding: 5px 20px 5px 20px; width: fit-content;">Dimi Picker</h1>
-            <br>
-            <div id="startNumbers">
-                <div style="display: inline-block; text-align: center; padding-right: 20px;">
-                    <a>시작 번호</a><br>
-                    <input type="text" oninput="editSize2(this)" class="inputNumber" id="min" value="0">
+        <div style="display: inline-block;">
+            <div class="printNo" style="display: inline-block; margin: 0px 100px 0px 100px; float: left;">
+                <div id="startNumbers">
+                    <div style="display: inline-block; text-align: center; padding-right: 20px;">
+                        <a>시작 번호</a><br>
+                        <input type="text" oninput="editSize2(this)" class="inputNumber" id="min" value="0">
+                    </div>
+                    <div style="display: inline-block; text-align: center;">
+                        <a>끝 번호</a><br>
+                        <input type="text" oninput="editSize2(this)" class="inputNumber" id="max" value="0">
+                    </div>
+                    <br><br>
                 </div>
-                <div style="display: inline-block; text-align: center;">
-                    <a>끝 번호</a><br>
-                    <input type="text" oninput="editSize2(this)" class="inputNumber" id="max" value="0">
-                </div>
-                <br><br>
-            </div>
-            <a>당첨된 번호 (띄어쓰기로 구분)</a>
-            <br>
-            <input type="text" oninput="editSize(this)" class="inputNumber" id="afterNumber" style="text-align: center;">
-            <br><br>
-            <div class="printNo" style="margin-bottom: 10px;">
-                <input type="checkbox" id="checkbox2" onclick="clickCheckBox()"><label for="checkbox2"></label><a style="vertical-align: top; margin-left: 6px;">이름으로 뽑기 (띄어쓰기로 구분)</a>
-            </div>
-            <div id="textarea" style="display: none;">
-                <textarea type="text" class="inputNumber" id="textareaText" style="text-align: center; width: 90vw; esize: none;"></textarea>
+                <a>당첨된 번호 (띄어쓰기로 구분)</a>
                 <br>
+                <input type="text" class="inputNumber" id="afterNumber" style="text-align: center; width: 250px;">
+                <br><br>
+                <div id="textarea" style="display: none;">
+                    <textarea type="text" class="inputNumber" id="textareaText" style="text-align: center; width: 90vw; esize: none;"></textarea>
+                    <br>
+                </div>
+                <h1 id="nowNumber" style="font-size: 100px; line-height: 0px; margin: 56px 0px 86px 0px;">ㅤ</h1>
+                <button class="inputButton" style="margin-right: 10px;" onclick="clickButton()">뽑기</button>
+                <button class="inputButton" onclick="viewClick()" id="viewButton">자리 보기</button>
+                <br><br>
+                <div class="printNo" style="margin-bottom: 10px;">
+                    <input type="checkbox" id="checkbox2" onclick="clickCheckBox()"><label for="checkbox2"></label><a style="vertical-align: top; margin-left: 6px;">이름으로 뽑기 (띄어쓰기로 구분)</a>
+                </div>
             </div>
-            <h1 id="nowNumber" style="font-size: 60px; line-height: 20px; margin-bottom: 50px;">ㅤ</h1>
-            <button class="inputButton" style="margin-right: 10px;" onclick="clickButton()">뽑기</button>
-            <button class="inputButton" onclick="viewClick()" id="viewButton">자리 보기</button>
-            <br><br>
-        </div>
-        <div id="table" style="display: none;">
-            <div class="printNo" style="margin-bottom: 10px;">
-                <input type="checkbox" id="checkbox"><label for="checkbox"></label><a style="vertical-align: top; margin-left: 6px;">자동으로 자리 기입하기</a>
+            <div id="table" style="display: none; float: left;">
+                <table class="tables" style="border: none;">
+                    <tr>
+                        <td colspan='5'><input type="text" class="name" value="교탁(칠판)" style="width: 200px; color: black;"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="name" id="1" placeholder="1"></td>
+                        <td><input type="text" class="name" id="2" placeholder="2"></td>
+                        <td><input type="text" class="name" id="3" placeholder="3"></td>
+                        <td><input type="text" class="name" id="4" placeholder="4"></td>
+                        <td><input type="text" class="name" id="5" placeholder="5"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="name" id="6" placeholder="6"></td>
+                        <td><input type="text" class="name" id="7" placeholder="7"></td>
+                        <td><input type="text" class="name" id="8" placeholder="8"></td>
+                        <td><input type="text" class="name" id="9" placeholder="9"></td>
+                        <td><input type="text" class="name" id="10" placeholder="10"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="name" id="11" placeholder="11"></td>
+                        <td><input type="text" class="name" id="12" placeholder="12"></td>
+                        <td><input type="text" class="name" id="13" placeholder="13"></td>
+                        <td><input type="text" class="name" id="14" placeholder="14"></td>
+                        <td><input type="text" class="name" id="15" placeholder="15"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="name" id="16" placeholder="16"></td>
+                        <td><input type="text" class="name" id="17" placeholder="17"></td>
+                        <td><input type="text" class="name" id="18" placeholder="18"></td>
+                        <td><input type="text" class="name" id="19" placeholder="19"></td>
+                        <td><input type="text" class="name" id="20" placeholder="20"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="name" id="21" placeholder="21"></td>
+                        <td><input type="text" class="name" id="22" placeholder="22"></td>
+                        <td><input type="text" class="name" id="23" placeholder="23"></td>
+                        <td><input type="text" class="name" id="24" placeholder="24"></td>
+                        <td><input type="text" class="name" id="25" placeholder="25"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="name" id="26" placeholder="26"></td>
+                        <td><input type="text" class="name" id="27" placeholder="27"></td>
+                        <td><input type="text" class="name" id="28" placeholder="28"></td>
+                        <td><input type="text" class="name" id="29" placeholder="29"></td>
+                        <td><input type="text" class="name" id="30" placeholder="30"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="name" id="31" placeholder="31"></td>
+                        <td><input type="text" class="name" id="32" placeholder="32"></td>
+                        <td><input type="text" class="name" id="33" placeholder="33"></td>
+                        <td><input type="text" class="name" id="34" placeholder="34"></td>
+                        <td><input type="text" class="name" id="35" placeholder="35"></td>
+                    </tr>
+                </table>
+                <br>
+                <button class="inputButton printNo" style="margin-right: 10px;" onclick="clickAllDel()" id="delButton">자리 초기화</button>
+                <button class="inputButton printNo" onclick="clickPrint()" id="viewButtons">프린트</button>
+                <br><br>
+                <div class="printNo" style="margin-bottom: 10px;">
+                    <input type="checkbox" id="checkbox"><label for="checkbox"></label><a style="vertical-align: top; margin-left: 6px;">자동으로 자리 기입하기</a>
+                </div>
             </div>
-            <table class="tables" style="border: none;">
-                <tr>
-                    <td colspan='5'><input type="text" class="name" value="교탁(칠판)" style="width: 200px; color: black;"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="name" id="1" placeholder="1"></td>
-                    <td><input type="text" class="name" id="2" placeholder="2"></td>
-                    <td><input type="text" class="name" id="3" placeholder="3"></td>
-                    <td><input type="text" class="name" id="4" placeholder="4"></td>
-                    <td><input type="text" class="name" id="5" placeholder="5"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="name" id="6" placeholder="6"></td>
-                    <td><input type="text" class="name" id="7" placeholder="7"></td>
-                    <td><input type="text" class="name" id="8" placeholder="8"></td>
-                    <td><input type="text" class="name" id="9" placeholder="9"></td>
-                    <td><input type="text" class="name" id="10" placeholder="10"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="name" id="11" placeholder="11"></td>
-                    <td><input type="text" class="name" id="12" placeholder="12"></td>
-                    <td><input type="text" class="name" id="13" placeholder="13"></td>
-                    <td><input type="text" class="name" id="14" placeholder="14"></td>
-                    <td><input type="text" class="name" id="15" placeholder="15"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="name" id="16" placeholder="16"></td>
-                    <td><input type="text" class="name" id="17" placeholder="17"></td>
-                    <td><input type="text" class="name" id="18" placeholder="18"></td>
-                    <td><input type="text" class="name" id="19" placeholder="19"></td>
-                    <td><input type="text" class="name" id="20" placeholder="20"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="name" id="21" placeholder="21"></td>
-                    <td><input type="text" class="name" id="22" placeholder="22"></td>
-                    <td><input type="text" class="name" id="23" placeholder="23"></td>
-                    <td><input type="text" class="name" id="24" placeholder="24"></td>
-                    <td><input type="text" class="name" id="25" placeholder="25"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="name" id="26" placeholder="26"></td>
-                    <td><input type="text" class="name" id="27" placeholder="27"></td>
-                    <td><input type="text" class="name" id="28" placeholder="28"></td>
-                    <td><input type="text" class="name" id="29" placeholder="29"></td>
-                    <td><input type="text" class="name" id="30" placeholder="30"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="name" id="31" placeholder="31"></td>
-                    <td><input type="text" class="name" id="32" placeholder="32"></td>
-                    <td><input type="text" class="name" id="33" placeholder="33"></td>
-                    <td><input type="text" class="name" id="34" placeholder="34"></td>
-                    <td><input type="text" class="name" id="35" placeholder="35"></td>
-                </tr>
-            </table>
-            <br>
-            <button class="inputButton printNo" style="margin-right: 10px;" onclick="clickAllDel()" id="delButton">자리 초기화</button>
-            <button class="inputButton printNo" onclick="clickPrint()" id="viewButtons">프린트</button>
         </div>
     </div>
     <div class="printNo" style="position: fixed; bottom: -10px; z-index: 1;">
