@@ -249,15 +249,23 @@
             }
         }
         function clickPrint(){
+            var values = [];
             for(var i = 1; i <= 35; i++){
                 document.getElementById(String(i)).placeholder = "";
+                values.push(document.getElementById(String(i)).value);
             }
             var inbody = document.body.innerHTML;
             window.onbeforeprint = function(){
                 document.body.innerHTML = document.getElementById('table').innerHTML;
+                for(var i = 1; i <= 35; i++){
+                    document.getElementById(String(i)).value = values[i-1];
+                }
             }
             window.onafterprint = function(){
                 document.body.innerHTML = inbody;
+                for(var i = 1; i <= 35; i++){
+                    document.getElementById(String(i)).value = values[i-1];
+                }
             }
             window.print();
             for(var i = 1; i <= 35; i++){
